@@ -1,0 +1,1390 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <!-- Meta Pixel Code -->
+    <script>
+    !function(f,b,e,v,n,t,s)
+    {if(f.fbq)return;n=f.fbq=function(){n.callMethod?
+    n.callMethod.apply(n,arguments):n.queue.push(arguments)};
+    if(!f._fbq)f._fbq=n;n.push=n;n.loaded=!0;n.version='2.0';
+    n.queue=[];t=b.createElement(e);t.async=!0;
+    t.src=v;s=b.getElementsByTagName(e)[0];
+    s.parentNode.insertBefore(t,s)}(window, document,'script',
+    'https://connect.facebook.net/en_US/fbevents.js');
+    fbq('init', '2059430531253510');
+    fbq('track', 'PageView');
+    </script>
+    <noscript><img height="1" width="1" style="display:none"
+    src="https://www.facebook.com/tr?id=2059430531253510&ev=PageView&noscript=1"
+    /></noscript>
+    <!-- End Meta Pixel Code -->
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>200 Cafés da Manhã Nutritivos e Saborosos | Receitas da Nutri</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&family=Playfair+Display:wght@700;900&display=swap" rel="stylesheet">
+    <style>
+        body {
+            font-family: 'Poppins', sans-serif;
+            overflow-x: hidden;
+            width: 100%;
+        }
+        .heading-font {
+            font-family: 'Playfair Display', serif;
+        }
+        .gradient-text {
+            background: linear-gradient(90deg, #3b82f6, #10b981);
+            -webkit-background-clip: text;
+            background-clip: text;
+            color: transparent;
+        }
+        .recipe-card {
+            transition: all 0.3s cubic-bezier(0.25, 0.8, 0.25, 1);
+            border-radius: 12px;
+            overflow: hidden;
+        }
+        .recipe-card:hover {
+            transform: translateY(-8px);
+            box-shadow: 0 15px 30px rgba(0, 0, 0, 0.12);
+        }
+        .price-strike {
+            position: relative;
+            display: inline-block;
+        }
+        .price-strike:before {
+            content: "";
+            position: absolute;
+            left: 0;
+            top: 50%;
+            width: 100%;
+            height: 2px;
+            background: #ef4444;
+            transform: rotate(-3deg);
+        }
+        .toggle-item {
+            border-bottom: 1px solid #e5e7eb;
+        }
+        .toggle-title {
+            cursor: pointer;
+            padding: 1.25rem 0;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            transition: all 0.3s ease;
+        }
+        .toggle-title:hover {
+            color: #3b82f6;
+        }
+        .toggle-content {
+            max-height: 0;
+            overflow: hidden;
+            transition: max-height 0.4s ease;
+        }
+        .toggle-content.active {
+            max-height: 1000px;
+            padding-bottom: 1.5rem;
+        }
+        .toggle-title i {
+            transition: transform 0.3s ease;
+        }
+        .toggle-title.active i {
+            transform: rotate(180deg);
+        }
+        .swiper-slide {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+        }
+        .swiper-slide img {
+            max-width: 100%;
+            height: auto;
+            border-radius: 12px;
+            box-shadow: 0 10px 15px rgba(0, 0, 0, 0.1);
+        }
+        .btn-primary {
+            background: linear-gradient(90deg, #3b82f6, #10b981);
+            transition: all 0.3s ease;
+            box-shadow: 0 4px 15px rgba(59, 130, 246, 0.4);
+        }
+        .btn-primary:hover {
+            transform: translateY(-3px);
+            box-shadow: 0 8px 25px rgba(59, 130, 246, 0.5);
+        }
+        .btn-secondary {
+            background: linear-gradient(90deg, #f59e0b, #ef4444);
+            transition: all 0.3s ease;
+            box-shadow: 0 4px 15px rgba(245, 158, 11, 0.4);
+        }
+        .btn-secondary:hover {
+            transform: translateY(-3px);
+            box-shadow: 0 8px 25px rgba(245, 158, 11, 0.5);
+        }
+        .feature-icon {
+            width: 48px;
+            height: 48px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            border-radius: 12px;
+            background: linear-gradient(135deg, rgba(59, 130, 246, 0.1), rgba(16, 185, 129, 0.1));
+        }
+        .testimonial-card {
+            background: white;
+            border-radius: 16px;
+            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.05);
+            transition: all 0.3s ease;
+        }
+        .testimonial-card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 15px 35px rgba(0, 0, 0, 0.1);
+        }
+        .guarantee-badge {
+            position: relative;
+            padding: 1rem 2rem;
+            border-radius: 50px;
+            background: linear-gradient(90deg, #3b82f6, #10b981);
+            box-shadow: 0 5px 15px rgba(59, 130, 246, 0.3);
+            overflow: hidden;
+        }
+        .guarantee-badge:before {
+            content: "";
+            position: absolute;
+            top: -50%;
+            left: -50%;
+            width: 200%;
+            height: 200%;
+            background: linear-gradient(
+                to bottom right,
+                rgba(255, 255, 255, 0.3),
+                rgba(255, 255, 255, 0)
+            );
+            transform: rotate(30deg);
+            animation: shine 3s infinite;
+        }
+        @keyframes shine {
+            0% {
+                transform: rotate(30deg) translate(-30%, -30%);
+            }
+            100% {
+                transform: rotate(30deg) translate(30%, 30%);
+            }
+        }
+        .floating-cta {
+            position: fixed;
+            bottom: 30px;
+            right: 30px;
+            z-index: 100;
+            animation: float 3s ease-in-out infinite;
+        }
+        
+        @keyframes float {
+            0%, 100% {
+                transform: translateY(0);
+            }
+            50% {
+                transform: translateY(-10px);
+            }
+        }
+        
+        .smoke {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+        }
+        
+        .smoke span {
+            position: absolute;
+            background: rgba(255,255,255,0.3);
+            border-radius: 50%;
+            display: block;
+            filter: blur(5px);
+            animation: smoke 3s linear infinite;
+            opacity: 0;
+        }
+        
+        @keyframes smoke {
+            0% {
+                transform: scale(0.2);
+                opacity: 0;
+            }
+            30% {
+                opacity: 0.3;
+            }
+            100% {
+                transform: scale(1.5);
+                opacity: 0;
+            }
+        }
+        
+        .s0 { left: 30%; top: 30%; width: 10px; height: 10px; animation-delay: 0s; }
+        .s1 { left: 40%; top: 20%; width: 8px; height: 8px; animation-delay: 0.4s; }
+        .s2 { left: 50%; top: 30%; width: 12px; height: 12px; animation-delay: 0.8s; }
+        .s3 { left: 60%; top: 25%; width: 6px; height: 6px; animation-delay: 1.2s; }
+        .s4 { left: 35%; top: 40%; width: 9px; height: 9px; animation-delay: 1.6s; }
+        .s5 { left: 45%; top: 35%; width: 7px; height: 7px; animation-delay: 2s; }
+        .s6 { left: 55%; top: 45%; width: 11px; height: 11px; animation-delay: 2.4s; }
+        .s7 { left: 65%; top: 40%; width: 5px; height: 5px; animation-delay: 2.8s; }
+    </style>
+</head>
+<body class="bg-gray-50 text-gray-800">
+    <!-- Floating Food Icon with Smoke Effect -->
+    <div class="floating-cta">
+        <a href="#price" class="w-16 h-16 rounded-full bg-gradient-to-br from-yellow-400 to-red-500 flex items-center justify-center shadow-lg relative overflow-hidden">
+            <i class="fas fa-utensils text-white text-xl"></i>
+            <!-- Smoke effect elements -->
+            <div class="smoke">
+                <span class="s0"></span>
+                <span class="s1"></span>
+                <span class="s2"></span>
+                <span class="s3"></span>
+                <span class="s4"></span>
+                <span class="s5"></span>
+                <span class="s6"></span>
+                <span class="s7"></span>
+            </div>
+        </a>
+    </div>
+
+    <!-- Hero Section -->
+    <section class="py-20 px-4 bg-gradient-to-br from-blue-600 to-green-600 text-white">
+        <div class="max-w-6xl mx-auto text-center">
+            <h1 class="text-4xl md:text-6xl font-bold mb-6 heading-font">
+                Transforme Seu Café da Manhã<br>
+                <span style="color: #FFFF00;">Com 200 Receitas Nutritivas</span>
+            </h1>
+            <p class="text-xl text-gray-200 mb-10 max-w-2xl mx-auto leading-relaxed">
+                Desenvolvidas pela nutricionista Sofia Nunes, essas recejas combinam saúde e sabor em preparos rápidos de até 15 minutos.
+            </p>
+            
+            <!-- Image Carousel -->
+            <div class="hero swiper-container mb-12 max-w-4xl mx-auto">
+                <div class="swiper-wrapper">
+                    <div class="swiper-slide">
+                        <img src="https://areceitadodia.com/wp-content/uploads/2025/05/7-6.webp" alt="Receita de café da manhã saudável" class="w-full h-96 object-cover rounded-xl">
+                    </div>
+                    <div class="swiper-slide">
+                        <img src="https://areceitadodia.com/wp-content/uploads/2025/05/6-6.webp" alt="Receita de café da manhã rápido" class="w-full h-96 object-cover rounded-xl">
+                    </div>
+                    <div class="swiper-slide">
+                        <img src="https://areceitadodia.com/wp-content/uploads/2025/05/5-6.webp" alt="Receita de café da manhã nutritivo" class="w-full h-96 object-cover rounded-xl">
+                    </div>
+                </div>
+                <div class="swiper-pagination"></div>
+            </div>
+            
+            <div class="flex flex-col sm:flex-row justify-center gap-4 mb-10">
+                <a href="#price" class="btn-primary text-white font-bold py-4 px-8 rounded-full text-lg">
+                    <i class="fas fa-bolt mr-2"></i> QUERO AS RECEITAS AGORA
+                </a>
+                <a href="#recipes" class="bg-white text-blue-600 font-bold py-4 px-8 rounded-full text-lg border-2 border-white hover:bg-gray-100 transition">
+                    <i class="fas fa-utensils mr-2"></i> VER RECEITAS
+                </a>
+            </div>
+            
+            <div class="flex flex-wrap justify-center gap-6 max-w-2xl mx-auto">
+                <div class="flex items-center">
+                    <div class="bg-blue-100 text-blue-600 p-2 rounded-full mr-2">
+                        <i class="fas fa-check-circle text-sm"></i>
+                    </div>
+                    <span class="text-gray-100">+200 Receitas</span>
+                </div>
+                <div class="flex items-center">
+                    <div class="bg-blue-100 text-blue-600 p-2 rounded-full mr-2">
+                        <i class="fas fa-check-circle text-sm"></i>
+                    </div>
+                    <span class="text-gray-100">Até 350 calorias</span>
+                </div>
+                <div class="flex items-center">
+                    <div class="bg-blue-100 text-blue-600 p-2 rounded-full mr-2">
+                        <i class="fas fa-check-circle text-sm"></i>
+                    </div>
+                    <span class="text-gray-100">15 minutos</span>
+                </div>
+            </div>
+        </div>
+    </section>
+    
+    <!-- Features Section -->
+    <section class="py-20 px-4 bg-white">
+        <div class="max-w-6xl mx-auto">
+            <div class="text-center mb-16">
+                <h2 class="text-3xl md:text-5xl font-bold mb-6 heading-font">
+                    Café da Manhã Perfeito<br>
+                    <span style="background: linear-gradient(90deg, #FF4500, #FF8C00); -webkit-background-clip: text; background-clip: text; color: transparent;">Todos os Dias</span>
+                </h2>
+                <p class="text-xl text-black max-w-2xl mx-auto">
+                    Receitas criadas para oferecer nutrição, praticidade e muito sabor.
+                </p>
+            </div>
+            
+            <div class="grid md:grid-cols-2 lg:grid-cols-3 gap-8">
+                <div class="bg-gray-50 p-8 rounded-xl text-center md:text-left">
+                    <div class="feature-icon mb-6 mx-auto md:mx-0">
+                        <i class="fas fa-clock text-2xl text-blue-600"></i>
+                    </div>
+                    <h3 class="text-xl font-bold mb-3">Pronto em 15 Minutos</h3>
+                    <p class="text-gray-600">Receitas rápidas para quem tem pressa mas não abre mão da saúde.</p>
+                </div>
+                
+                <div class="bg-gray-50 p-8 rounded-xl text-center md:text-left">
+                    <div class="feature-icon mb-6 mx-auto md:mx-0">
+                        <i class="fas fa-apple-alt text-2xl text-green-600"></i>
+                    </div>
+                    <h3 class="text-xl font-bold mb-3">Ingredientes Acessíveis</h3>
+                    <p class="text-gray-600">Tudo que você precisa encontrar no mercado da esquina.</p>
+                </div>
+                
+                <div class="bg-gray-50 p-8 rounded-xl text-center md:text-left">
+                    <div class="feature-icon mb-6 mx-auto md:mx-0">
+                        <i class="fas fa-heart text-2xl text-red-500"></i>
+                    </div>
+                    <h3 class="text-xl font-bold mb-3">Savor Autêntico</h3>
+                    <p class="text-gray-600">Receitas que realmente têm gosto de comida gostosa.</p>
+                </div>
+                
+                <div class="bg-gray-50 p-8 rounded-xl text-center md:text-left">
+                    <div class="feature-icon mb-6 mx-auto md:mx-0">
+                        <i class="fas fa-utensils text-2xl text-yellow-500"></i>
+                    </div>
+                    <h3 class="text-xl font-bold mb-3">Utensílios Simples</h3>
+                    <p class="text-gray-600">Preparo com o básico: frigideira, liquidificador e colher.</p>
+                </div>
+                
+                <div class="bg-gray-50 p-8 rounded-xl text-center md:text-left">
+                    <div class="feature-icon mb-6 mx-auto md:mx-0">
+                        <i class="fas fa-chart-line text-2xl text-purple-600"></i>
+                    </div>
+                    <h3 class="text-xl font-bold mb-3">Nutrição Balanceada</h3>
+                    <p class="text-gray-600">Cada receita foi pensada para oferecer os nutrientes essenciais.</p>
+                </div>
+                
+                <div class="bg-gray-50 p-8 rounded-xl text-center md:text-left">
+                    <div class="feature-icon mb-6 mx-auto md:mx-0">
+                        <i class="fas fa-calendar-alt text-2xl text-indigo-600"></i>
+                    </div>
+                    <h3 class="text-xl font-bold mb-3">Variedade Anual</h3>
+                    <p class="text-gray-600">200 opções diferentes para nunca repetir o mesmo cardápio.</p>
+                </div>
+            </div>
+            
+            <div class="text-center mt-16">
+                <a href="#price" class="btn-primary text-white font-bold py-4 px-8 rounded-full text-lg inline-block">
+                    <i class="fas fa-shopping-cart mr-2"></i> QUERO MEU CARDÁPIO
+                </a>
+            </div>
+        </div>
+    </section>
+
+    <!-- Recipes Section -->
+    <section id="recipes" class="py-20 px-4 bg-gradient-to-br from-blue-600 to-green-600">
+        <div class="max-w-6xl mx-auto">
+            <div class="text-center mb-16">
+                <h2 class="text-3xl md:text-5xl font-bold mb-6 heading-font">
+                    <span style="color: #FFFF00;">Receitas Exclusivas</span><br>
+                    Que Você Vai Amar
+                </h2>
+                <p class="text-xl text-white max-w-2xl mx-auto">
+                    Veja algumas das delícias que esperam por você.
+                </p>
+            </div>
+            
+            <div class="grid md:grid-cols-2 lg:grid-cols-3 gap-8">
+                <!-- Recipe 1 -->
+                <div class="recipe-card bg-white">
+                    <img src="https://areceitadodia.com/wp-content/uploads/2025/05/530db24e-a46c-49f4-85b7-39a9aa50b6e2-xl.webp" alt="Café de Frigideira com Ovos e Frios" class="w-full h-64 object-cover">
+                    <div class="p-6">
+                        <div class="flex justify-between items-start mb-3">
+                            <h3 class="text-xl font-bold">Café de Frigideira com Ovos e Frios</h3>
+                            <span class="bg-blue-100 text-blue-600 text-xs font-bold px-2 py-1 rounded">195 CAL</span>
+                        </div>
+                        <div class="flex items-center text-gray-300 text-sm">
+                            <i class="fas fa-clock mr-1"></i> 10 MINUTOS
+                        </div>
+                    </div>
+                </div>
+                
+                <!-- Recipe 2 -->
+                <div class="recipe-card bg-white">
+                    <img src="https://areceitadodia.com/wp-content/uploads/2025/05/BAIXA-2.webp" alt="Pizza Rápida de Frigideira" class="w-full h-64 object-cover">
+                    <div class="p-6">
+                        <div class="flex justify-between items-start mb-3">
+                            <h3 class="text-xl font-bold">Pizza Rápida de Frigideira</h3>
+                            <span class="bg-blue-100 text-blue-600 text-xs font-bold px-2 py-1 rounded">207 CAL</span>
+                        </div>
+                        <div class="flex items-center text-gray-500 text-sm">
+                            <i class="fas fa-clock mr-1"></i> 3 INGREDIENTES
+                        </div>
+                    </div>
+                </div>
+                
+                <!-- Recipe 3 -->
+                <div class="recipe-card bg-white">
+                    <img src="https://areceitadodia.com/wp-content/uploads/2025/05/fec84e0a9389fdc006a7dde8e0b3fee1-1.webp" alt="Panqueca Fit de Banana" class="w-full h-64 object-cover">
+                    <div class="p-6">
+                        <div class="flex justify-between items-start mb-3">
+                            <h3 class="text-xl font-bold">Panqueca Fit de Banana</h3>
+                            <span class="bg-blue-100 text-blue-600 text-xs font-bold px-2 py-1 rounded">183 CAL</span>
+                        </div>
+                        <div class="flex items-center text-gray-500 text-sm">
+                            <i class="fas fa-clock mr-1"></i> 7 MINUTOS
+                        </div>
+                    </div>
+                </div>
+                
+                <!-- Recipe 4 -->
+                <div class="recipe-card bg-white">
+                    <img src="https://areceitadodia.com/wp-content/uploads/2025/05/SSP_2014-Ometele-de-frios-com-cebolinha-e-salsa-1.webp" alt="Omelete de Frios Tostada" class="w-full h-64 object-cover">
+                    <div class="p-6">
+                        <div class="flex justify-between items-start mb-3">
+                            <h3 class="text-xl font-bold">Omelete de Frios Tostada</h3>
+                            <span class="bg-blue-100 text-blue-600 text-xs font-bold px-2 py-1 rounded">125 CAL</span>
+                        </div>
+                        <div class="flex items-center text-gray-500 text-sm">
+                            <i class="fas fa-clock mr-1"></i> 9 MINUTOS
+                        </div>
+                    </div>
+                </div>
+                
+                <!-- Recipe 5 -->
+                <div class="recipe-card bg-white">
+                    <img src="https://areceitadodia.com/wp-content/uploads/2025/05/salada-de-frutas-no-pote-com-creme-de-leite-ninho-0-1.webp" alt="Salada de Frutas Digestivas" class="w-full h-64 object-cover">
+                    <div class="p-6">
+                        <div class="flex justify-between items-start mb-3">
+                            <h3 class="text-xl font-bold">Salada de Frutas Digestivas</h3>
+                            <span class="bg-blue-100 text-blue-600 text-xs font-bold px-2 py-1 rounded">120 CAL</span>
+                        </div>
+                        <div class="flex items-center text-gray-500 text-sm">
+                            <i class="fas fa-clock mr-1"></i> 6 FRUTAS
+                        </div>
+                    </div>
+                </div>
+                
+                <!-- Recipe 6 -->
+                <div class="recipe-card bg-white">
+                    <img src="https://areceitadodia.com/wp-content/uploads/2025/05/BAIXA.webp" alt="Pão Cremoso Gratinado" class="w-full h-64 object-cover">
+                    <div class="p-6">
+                        <div class="flex justify-between items-start mb-3">
+                            <h3 class="text-xl font-bold">Pão Cremoso Gratinado</h3>
+                            <span class="bg-blue-100 text-blue-600 text-xs font-bold px-2 py-1 rounded">170 CAL</span>
+                        </div>
+                        <div class="flex items-center text-gray-500 text-sm">
+                            <i class="fas fa-clock mr-1"></i> 8 MINUTOS
+                        </div>
+                    </div>
+                </div>
+            </div>
+            
+            <div class="text-center mt-16">
+                <h3 class="text-2xl md:text-3xl font-bold mb-6 heading-font">
+                    <span style="color: #FFFF00;">+194 Outras Receitas</span><br>
+                    <span class="text-white">Esperando Por Você</span>
+                </h3>
+                <a href="https://pay.cakto.com.br/3bzkwmj_538167" class="btn-primary text-white font-bold py-4 px-8 rounded-full text-lg inline-block">
+                    <i class="fas fa-bolt mr-2"></i> QUERO TODAS AS RECEITAS
+                </a>
+            </div>
+        </div>
+    </section>
+
+    <!-- Nutritionist Section -->
+    <section class="py-20 px-4 bg-white">
+        <div class="max-w-6xl mx-auto flex flex-col lg:flex-row items-center gap-12">
+            <div class="lg:w-1/2">
+                <img src="https://areceitadodia.com/wp-content/uploads/2025/04/modelo-reduzida.webp" alt="Nutricionista Sofia Nunes" class="rounded-xl shadow-xl w-full max-w-md mx-auto">
+            </div>
+            <div class="lg:w-1/2">
+                <h2 class="text-3xl md:text-4xl font-bold mb-6 heading-font">
+                    Conheça a Especialista<br>
+                    <span style="background: linear-gradient(90deg, #FF4500, #FF8C00); -webkit-background-clip: text; background-clip: text; color: transparent;">Sofia Nunes</span>
+                </h2>
+                <p class="text-gray-600 mb-6 leading-relaxed">
+                    Nutricionista formada pela USP com especialização em alimentação funcional e gastronomia saudável. Com mais de 10 anos de experiência clínica, Sofia Nunes desenvolveu essas receitas para unir nutrição e sabor de forma prática.
+                </p>
+                <div class="space-y-4">
+                    <div class="flex items-start">
+                        <div class="bg-blue-100 text-blue-600 p-2 rounded-full mr-4 flex-shrink-0">
+                            <i class="fas fa-graduation-cap"></i>
+                        </div>
+                        <p class="text-gray-700">Pós-graduada em Nutrição Clínica Funcional</p>
+                    </div>
+                    <div class="flex items-start">
+                        <div class="bg-blue-100 text-blue-600 p-2 rounded-full mr-4 flex-shrink-0">
+                            <i class="fas fa-award"></i>
+                        </div>
+                        <p class="text-gray-700">Premiada pelo Conselho Regional de Nutricionistas</p>
+                    </div>
+                    <div class="flex items-start">
+                        <div class="bg-blue-100 text-blue-600 p-2 rounded-full mr-4 flex-shrink-0">
+                            <i class="fas fa-book"></i>
+                        </div>
+                        <p class="text-gray-700">Autora de 3 livros sobre alimentação saudável</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Bonuses Section -->
+    <section class="py-20 px-4 bg-gradient-to-br from-blue-600 to-green-600 text-white">
+        <div class="max-w-6xl mx-auto">
+            <div class="text-center mb-16">
+                <h2 class="text-3xl md:text-5xl font-bold mb-6 heading-font">
+                    Bônus Exclusivos<br>
+                    <span style="color: #FFFF00;">Para Você</span>
+                </h2>
+                <p class="text-xl text-white max-w-2xl mx-auto">
+                    Adquira hoje e leve esses presentes especiais.
+                </p>
+            </div>
+            
+            <div class="grid md:grid-cols-3 gap-8">
+                <!-- Bonus 1 -->
+                <div class="bg-white rounded-xl overflow-hidden shadow-lg hover:shadow-xl transition">
+                    <div class="relative">
+                        <img src="https://areceitadodia.com/wp-content/uploads/2025/07/maxresdefault.webp" alt="200 Sobremesas Zero Açúcar" class="w-full h-48 object-cover">
+                        <div class="absolute top-4 left-4 bg-blue-600 text-white text-xs font-bold px-3 py-1 rounded-full">
+                            BÔNUS 1
+                        </div>
+                    </div>
+                    <div class="p-6">
+                        <h3 class="text-xl font-bold mb-3 text-black">200 Sobremesas Zero Açúcar</h3>
+                        <p class="text-gray-600 mb-4">Doces saudáveis para satisfazer sua vontade sem culpa.</p>
+                        <div class="flex items-center">
+                            <span class="price-strike text-gray-500 mr-3">R$29,00</span>
+                            <span class="bg-green-100 text-green-800 font-bold px-3 py-1 rounded-full text-sm">HOJE É GRÁTIS</span>
+                        </div>
+                    </div>
+                </div>
+                
+                <!-- Bonus 2 -->
+                <div class="bg-white rounded-xl overflow-hidden shadow-lg hover:shadow-xl transition">
+                    <div class="relative">
+                        <img src="https://areceitadodia.com/wp-content/uploads/2025/07/maxresdefault-1.webp" alt="30 Marmitas Fit para Congelar" class="w-full h-48 object-cover">
+                        <div class="absolute top-4 left-4 bg-blue-600 text-white text-xs font-bold px-3 py-1 rounded-full">
+                            BÔNUS 2
+                        </div>
+                    </div>
+                    <div class="p-6">
+                        <h3 class="text-xl font-bold mb-3 text-black">30 Marmitas Fit para Congelar</h3>
+                        <p class="text-gray-600 mb-4">Refeições completas para toda a semana em poucos minutos.</p>
+                        <div class="flex items-center">
+                            <span class="price-strike text-gray-500 mr-3">R$15,00</span>
+                            <span class="bg-green-100 text-green-800 font-bold px-3 py-1 rounded-full text-sm">HOJE É GRÁTIS</span>
+                        </div>
+                    </div>
+                </div>
+                
+                <!-- Bonus 3 -->
+                <div class="bg-white rounded-xl overflow-hidden shadow-lg hover:shadow-xl transition">
+                    <div class="relative">
+                        <img src="https://areceitadodia.com/wp-content/uploads/2025/07/receita-de-suco-detox.webp" alt="60 Sucos Detox" class="w-full h-48 object-cover">
+                        <div class="absolute top-4 left-4 bg-blue-600 text-white text-xs font-bold px-3 py-1 rounded-full">
+                            BÔNUS 3
+                        </div>
+                    </div>
+                    <div class="p-6">
+                        <h3 class="text-xl font-bold mb-3 text-black">60 Sucos Detox</h3>
+                        <p class="text-gray-600 mb-4">Bebidas nutritivas para limpar e energizar seu corpo.</p>
+                        <div class="flex items-center">
+                            <span class="price-strike text-gray-500 mr-3">R$29,00</span>
+                            <span class="bg-green-100 text-green-800 font-bold px-3 py-1 rounded-full text-sm">HOJE É GRÁTIS</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            
+            <div class="text-center mt-16">
+                <a href="https://pay.cakto.com.br/3bzkwmj_538167" class="btn-primary text-white font-bold py-4 px-8 rounded-full text-lg inline-block">
+                    <i class="fas fa-gift mr-2"></i> QUERO MEUS BÔNUS
+                </a>
+            </div>
+        </div>
+    </section>
+
+    <!-- Problems Section -->
+    <section class="py-20 px-4 bg-white">
+        <div class="max-w-6xl mx-auto">
+            <div class="text-center mb-16">
+                <h2 class="text-3xl md:text-5xl font-bold mb-6 heading-font">
+                    Você Se Identifica<br>
+                    <span style="background: linear-gradient(90deg, #FF4500, #FF8C00); -webkit-background-clip: text; background-clip: text; color: transparent;">Com Algum Dessas Situações?</span>
+                </h2>
+                <p class="text-xl text-gray-600 max-w-2xl mx-auto">
+                    Essas receitas foram criadas para resolver problemas reais.
+                </p>
+            </div>
+            
+            <div class="grid md:grid-cols-2 gap-6 max-w-4xl mx-auto">
+                <div class="flex items-start p-6 bg-red-50 rounded-xl">
+                    <div class="bg-red-100 text-red-600 p-3 rounded-full mr-4">
+                        <i class="fas fa-times"></i>
+                    </div>
+                    <div>
+                        <h3 class="font-bold mb-2">Café da Manhã Monótono</h3>
+                        <p class="text-gray-600">Sempre as mesmas opções sem criatividade ou variedade.</p>
+                    </div>
+                </div>
+                
+                <div class="flex items-start p-6 bg-red-50 rounded-xl">
+                    <div class="bg-red-100 text-red-600 p-3 rounded-full mr-4">
+                        <i class="fas fa-times"></i>
+                    </div>
+                    <div>
+                        <h3 class="font-bold mb-2">Falta de Tempo</h3>
+                        <p class="text-gray-600">Correria matinal que impede preparos elaborados.</p>
+                    </div>
+                </div>
+                
+                <div class="flex items-start p-6 bg-red-50 rounded-xl">
+                    <div class="bg-red-100 text-red-600 p-3 rounded-full mr-4">
+                        <i class="fas fa-times"></i>
+                    </div>
+                    <div>
+                        <h3 class="font-bold mb-2">Comida Sem Sabor</h3>
+                        <p class="text-gray-600">Receitas saudáveis que parecem "comida de dieta".</p>
+                    </div>
+                </div>
+                
+                <div class="flex items-start p-6 bg-red-50 rounded-xl">
+                    <div class="bg-red-100 text-red-600 p-3 rounded-full mr-4">
+                        <i class="fas fa-times"></i>
+                    </div>
+                    <div>
+                        <h3 class="font-bold mb-2">Ingredientes Difíceis</h3>
+                        <p class="text-gray-600">Produtos caros ou difíceis de encontrar no mercado.</p>
+                    </div>
+                </div>
+                
+                <div class="flex items-start p-6 bg-red-50 rounded-xl md:col-span-2">
+                    <div class="bg-red-100 text-red-600 p-3 rounded-full mr-4">
+                        <i class="fas fa-times"></i>
+                    </div>
+                    <div>
+                        <h3 class="font-bold mb-2">Falta de Nutrientes</h3>
+                        <p class="text-gray-600">Refeições que não fornecem energia suficiente para o dia.</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Benefits Section -->
+    <section class="py-20 px-4 bg-gradient-to-br from-blue-600 to-green-600 text-white">
+        <div class="max-w-6xl mx-auto">
+            <div class="text-center mb-16">
+                <h2 class="text-3xl md:text-5xl font-bold mb-6 heading-font">
+                    Como Sua Rotina<br>
+                    <span style="color: #FFFF00;">Vai Mudar</span>
+                </h2>
+                <p class="text-xl text-white max-w-2xl mx-auto">
+                    Os benefícios de começar o dia com essas receitas.
+                </p>
+            </div>
+            
+            <div class="grid md:grid-cols-2 gap-8 max-w-4xl mx-auto">
+                <div class="flex items-start p-6 bg-white rounded-xl shadow-sm hover:shadow-md transition">
+                    <div class="bg-green-100 text-green-600 p-3 rounded-full mr-4">
+                        <i class="fas fa-check"></i>
+                    </div>
+                    <div>
+                        <h3 class="font-bold mb-2 text-black">Mais Energia</h3>
+                        <p class="text-gray-600">Nutrientes essenciais para um dia produtivo.</p>
+                    </div>
+                </div>
+                
+                <div class="flex items-start p-6 bg-white rounded-xl shadow-sm hover:shadow-md transition">
+                    <div class="bg-green-100 text-green-600 p-3 rounded-full mr-4">
+                        <i class="fas fa-check"></i>
+                    </div>
+                    <div>
+                        <h3 class="font-bold mb-2 text-black">Peso Equilibrado</h3>
+                        <p class="text-gray-600">Controle calórico sem passar fome.</p>
+                    </div>
+                </div>
+                
+                <div class="flex items-start p-6 bg-white rounded-xl shadow-sm hover:shadow-md transition">
+                    <div class="bg-green-100 text-green-600 p-3 rounded-full mr-4">
+                        <i class="fas fa-check"></i>
+                    </div>
+                    <div>
+                        <h3 class="font-bold mb-2 text-black">Tempo Otimizado</h3>
+                        <p class="text-gray-600">Preparos rápidos para quem tem pressa.</p>
+                    </div>
+                </div>
+                
+                <div class="flex items-start p-6 bg-white rounded-xl shadow-sm hover:shadow-md transition">
+                    <div class="bg-green-100 text-green-600 p-3 rounded-full mr-4">
+                        <i class="fas fa-check"></i>
+                    </div>
+                    <div>
+                        <h3 class="font-bold mb-2 text-black">Variedade Garantida</h3>
+                        <p class="text-gray-600">200 opções diferentes para não enjoar.</p>
+                    </div>
+                </div>
+                
+                <div class="flex items-start p-6 bg-white rounded-xl shadow-sm hover:shadow-md transition">
+                    <div class="bg-green-100 text-green-600 p-3 rounded-full mr-4">
+                        <i class="fas fa-check"></i>
+                    </div>
+                    <div>
+                        <h3 class="font-bold mb-2 text-black">Savor Autêntico</h3>
+                        <p class="text-gray-600">Comida gostosa que nutre e satisfaz.</p>
+                    </div>
+                </div>
+                
+                <div class="flex items-start p-6 bg-white rounded-xl shadow-sm hover:shadow-md transition">
+                    <div class="bg-green-100 text-green-600 p-3 rounded-full mr-4">
+                        <i class="fas fa-check"></i>
+                    </div>
+                    <div>
+                        <h3 class="font-bold mb-2 text-black">Família Satisfeita</h3>
+                        <p class="text-gray-600">Receitas que agradam adultos e crianças.</p>
+                    </div>
+                </div>
+            </div>
+            
+            <div class="text-center mt-16">
+                <a href="#price" class="btn-primary text-white font-bold py-4 px-8 rounded-full text-lg inline-block">
+                    <i class="fas fa-bolt mr-2"></i> QUERO ESSES BENEFÍCIOS
+                </a>
+            </div>
+        </div>
+    </section>
+
+    <!-- Testimonials Section -->
+    <section class="py-20 px-4 bg-white">
+        <div class="max-w-6xl mx-auto">
+            <div class="text-center mb-16">
+                <h2 class="text-3xl md:text-5xl font-bold mb-6 heading-font">
+                    O Que Dizem<br>
+                    <span style="background: linear-gradient(90deg, #FF4500, #FF8C00); -webkit-background-clip: text; background-clip: text; color: transparent;">Nossos Clientes</span>
+                </h2>
+                <p class="text-xl text-gray-600 max-w-2xl mx-auto">
+                    Depoimentos reais de quem já experimentou.
+                </p>
+            </div>
+            
+            <div class="hidden md:block testimonials swiper-container max-w-4xl mx-auto">
+                <div class="swiper-wrapper">
+                    <div class="swiper-slide">
+                        <div class="testimonial-card p-8 mx-4 h-full">
+                            <div class="flex items-center mb-4">
+                                <img src="https://i.pinimg.com/1200x/f4/ad/a0/f4ada043742c0dc8feea539c9ea87cdd.jpg" alt="Fernanda Gomes" class="w-12 h-12 rounded-full object-cover mr-4">
+                                <div>
+                                    <h4 class="font-bold">Ana Carolina</h4>
+                                    <div class="flex text-yellow-400 text-sm">
+                                        <i class="fas fa-star"></i>
+                                        <i class="fas fa-star"></i>
+                                        <i class="fas fa-star"></i>
+                                        <i class="fas fa-star"></i>
+                                        <i class="fas fa-star"></i>
+                                    </div>
+                                </div>
+                            </div>
+                            <p class="text-gray-600 italic">"Finalmente encontrei receitas saudáveis que minha família toda adora. Meus filhos nem percebem que estão comendo comida nutritiva!"</p>
+                        </div>
+                    </div>
+                    
+                    <div class="swiper-slide">
+                        <div class="testimonial-card p-8">
+                            <div class="flex items-center mb-4">
+                                <img src="https://i.pinimg.com/736x/13/33/77/13337797b99580bce3ff9f78eacf1a45.jpg" alt="Ricardo Almeida" class="w-12 h-12 rounded-full object-cover mr-4">
+                                <div>
+                                    <h4 class="font-bold">Ricardo Almeida</h4>
+                                    <div class="flex text-yellow-400 text-sm">
+                                        <i class="fas fa-star"></i>
+                                        <i class="fas fa-star"></i>
+                                        <i class="fas fa-star"></i>
+                                        <i class="fas fa-star"></i>
+                                        <i class="fas fa-star"></i>
+                                    </div>
+                                </div>
+                            </div>
+                            <p class="text-gray-600 italic">"Perdi 8kg em 3 meses apenas mudando meu café da manhã com essas receitas. O melhor é que não passo fome e amo o sabor!"</p>
+                        </div>
+                    </div>
+                    
+                    <div class="swiper-slide">
+                        <div class="testimonial-card p-8">
+                            <div class="flex items-center mb-4">
+                                <img src="https://i.pinimg.com/736x/61/50/df/6150df80c4ceed619a6aab279a933405.jpg" alt="Ana Carolina" class="w-12 h-12 rounded-full object-cover mr-4">
+                                <div>
+                                    <h4 class="font-bold">Fernanda Gomes</h4>
+                                    <div class="flex text-yellow-400 text-sm">
+                                        <i class="fas fa-star"></i>
+                                        <i class="fas fa-star"></i>
+                                        <i class="fas fa-star"></i>
+                                        <i class="fas fa-star"></i>
+                                        <i class="fas fa-star"></i>
+                                    </div>
+                                </div>
+                            </div>
+                            <p class="text-gray-600 italic">"Como mãe ocupada, essas receitas salvaram minhas manhãs. Em 15 minutos preparo um café da manhã completo e delicioso."</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            
+            <div class="md:hidden space-y-6 max-w-md mx-auto">
+                <div class="testimonial-card p-6">
+                    <div class="flex items-center mb-4">
+                        <img src="https://i.pinimg.com/1200x/f4/ad/a0/f4ada043742c0dc8feea539c9ea87cdd.jpg" alt="Ana Carolina" class="w-12 h-12 rounded-full object-cover mr-4">
+                        <div>
+                            <h4 class="font-bold">Ana Carolina</h4>
+                            <div class="flex text-yellow-400 text-sm">
+                                <i class="fas fa-star"></i>
+                                <i class="fas fa-star"></i>
+                                <i class="fas fa-star"></i>
+                                <i class="fas fa-star"></i>
+                                <i class="fas fa-star"></i>
+                            </div>
+                        </div>
+                    </div>
+                    <p class="text-gray-600 italic">"Finalmente encontrei receitas saudáveis que minha família toda adora. Meus filhos nem percebem que estão comendo comida nutritiva!"</p>
+                </div>
+                
+                <div class="testimonial-card p-6">
+                    <div class="flex items-center mb-4">
+                        <img src="https://i.pinimg.com/736x/13/33/77/13337797b99580bce3ff9f78eacf1a45.jpg" alt="Ricardo Almeida" class="w-12 h-12 rounded-full object-cover mr-4">
+                        <div>
+                            <h4 class="font-bold">Ricardo Almeida</h4>
+                            <div class="flex text-yellow-400 text-sm">
+                                <i class="fas fa-star"></i>
+                                <i class="fas fa-star"></i>
+                                <i class="fas fa-star"></i>
+                                <i class="fas fa-star"></i>
+                                <i class="fas fa-star"></i>
+                            </div>
+                        </div>
+                    </div>
+                    <p class="text-gray-600 italic">"Perdi 8kg em 3 meses apenas mudando meu café da manhã com essas receitas. O melhor é que não passo fome e amo o sabor!"</p>
+                </div>
+                
+                <div class="testimonial-card p-6">
+                    <div class="flex items-center mb-4">
+                        <img src="https://i.pinimg.com/736x/61/50/df/6150df80c4ceed619a6aab279a933405.jpg" alt="Fernanda Gomes" class="w-12 h-12 rounded-full object-cover mr-4">
+                        <div>
+                            <h4 class="font-bold">Fernanda Gomes</h4>
+                            <div class="flex text-yellow-400 text-sm">
+                                <i class="fas fa-star"></i>
+                                <i class="fas fa-star"></i>
+                                <i class="fas fa-star"></i>
+                                <i class="fas fa-star"></i>
+                                <i class="fas fa-star"></i>
+                            </div>
+                        </div>
+                    </div>
+                    <p class="text-gray-600 italic">"Como mãe ocupada, essas receitas salvaram minhas manhãs. Em 15 minutos preparo um café da manhã completo e delicioso."</p>
+                </div>
+            </div>
+            
+            <div class="hidden md:flex justify-center mt-8">
+                <div class="swiper-pagination"></div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Pricing Section -->
+    <section id="price" class="py-20 px-4 bg-gradient-to-br from-blue-600 to-green-600 text-white">
+        <div class="max-w-4xl mx-auto text-center">
+            <div class="mb-4">
+                <span class="inline-block px-4 py-2 bg-white/20 rounded-full font-medium">OFERTA POR TEMPO LIMITADO</span>
+            </div>
+            
+            <div class="mb-8">
+                <div class="countdown-timer bg-gradient-to-r from-yellow-400 to-orange-500 text-white font-bold rounded-xl p-4 max-w-xs mx-auto">
+                    <div class="text-center text-sm mb-2">TERMINA EM:</div>
+                    <div class="flex justify-center gap-2 text-2xl">
+                        <div class="bg-white/20 rounded-lg px-3 py-1 min-w-[2.5rem] text-center">00</div>
+                        <div class="text-yellow-300">:</div>
+                        <div class="bg-white/20 rounded-lg px-3 py-1 min-w-[2.5rem] text-center">59</div>
+                        <div class="text-yellow-300">:</div>
+                        <div class="bg-white/20 rounded-lg px-3 py-1 min-w-[2.5rem] text-center">00</div>
+                    </div>
+                </div>
+            </div>
+            
+            <h2 class="text-3xl md:text-5xl font-bold mb-6 heading-font">
+                200 Cafés da Manhã<br>
+                <span class="text-yellow-300">Nutritivos e Saborosos</span>
+            </h2>
+            
+            <img src="https://i.pinimg.com/736x/5a/0b/d3/5a0bd3c3e4926e8e957885301328a585.jpg" alt="200 Cafés da Manhã" class="mx-auto mb-8 max-w-xs">
+            
+            <div class="bg-white/10 rounded-xl p-6 mb-8 max-w-md mx-auto">
+                <div class="flex flex-col space-y-3 text-left">
+                    <div class="flex items-center">
+                        <div class="bg-white text-blue-600 p-1 rounded-full mr-3">
+                            <i class="fas fa-check text-xs"></i>
+                        </div>
+                        <span>200 Receitas de Café da Manhã</span>
+                    </div>
+                    <div class="flex items-center">
+                        <div class="bg-white text-blue-600 p-1 rounded-full mr-3">
+                            <i class="fas fa-check text-xs"></i>
+                        </div>
+                        <span>+ Bônus: 200 Sobremesas Zero Açúcar</span>
+                    </div>
+                    <div class="flex items-center">
+                        <div class="bg-white text-blue-600 p-1 rounded-full mr-3">
+                            <i class="fas fa-check text-xs"></i>
+                        </div>
+                        <span>+ Bônus: 30 Marmitas Fit</span>
+                    </div>
+                    <div class="flex items-center">
+                        <div class="bg-white text-blue-600 p-1 rounded-full mr-3">
+                            <i class="fas fa-check text-xs"></i>
+                        </div>
+                        <span>+ Bônus: 60 Sucos Detox</span>
+                    </div>
+                </div>
+            </div>
+            
+            <div class="mb-8">
+                <span class="text-xl">De <span class="text-3xl font-bold line-through">R$129,00</span></span>
+            </div>
+            
+            <div class="text-5xl font-bold mb-2 text-yellow-300">
+                R$29,90
+            </div>
+            
+            <div class="text-xl mb-8">
+                ou 6x de R$5,69
+            </div>
+            
+            <div class="guarantee-badge inline-block mb-8">
+                <span class="relative z-10">7 Dias de Garantia Incondicional</span>
+            </div>
+            
+            <div class="mb-8 max-w-md mx-auto">
+                <a href="https://pay.cakto.com.br/3bzkwmj_538167" class="btn-secondary text-white font-bold py-4 px-8 rounded-full text-lg w-full block" id="main-cta">
+                    <i class="fas fa-shopping-cart mr-2"></i> SIM, QUERO MEU CARDÁPIO
+                </a>
+            </div>
+        </div>
+    </section>
+
+    <!-- Guarantee Section -->
+    <section class="py-20 px-4 bg-white">
+        <div class="max-w-4xl mx-auto">
+            <div class="bg-gradient-to-br from-blue-50 to-green-50 rounded-2xl p-8 md:p-12 text-center">
+                <div class="flex justify-center mb-6">
+                    <div class="bg-blue-600 text-white p-4 rounded-full">
+                        <i class="fas fa-shield-alt text-2xl"></i>
+                    </div>
+                </div>
+                <h2 class="text-3xl md:text-4xl font-bold mb-6 heading-font">
+                    <span style="background: linear-gradient(90deg, #FF4500, #FF8C00); -webkit-background-clip: text; background-clip: text; color: transparent;">Risco Zero Para Você</span>
+                </h2>
+                <p class="text-xl text-gray-600 mb-8 max-w-2xl mx-auto">
+                    Teste por 7 dias. Se não amar, devolvemos seu dinheiro sem perguntas.
+                </p>
+                <div class="bg-white p-6 rounded-xl shadow-sm max-w-2xl mx-auto">
+                    <p class="font-bold text-gray-800 mb-3">Nossa Garantia Incondicional:</p>
+                    <p class="text-gray-600">Se em até 7 dias você não estiver completamente satisfeito(a), basta nos enviar um e-mail e devolveremos 100% do seu dinheiro, sem burocracia. Você ainda poderá ficar com todos os bônus como nosso agradecimento.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Delivery Section -->
+    <section class="py-20 px-4 bg-gradient-to-br from-blue-600 to-green-600 text-white">
+        <div class="max-w-6xl mx-auto">
+            <div class="flex flex-col lg:flex-row items-center gap-12">
+                <div class="lg:w-1/2 order-2 lg:order-1">
+                    <h2 class="text-3xl md:text-4xl font-bold mb-6 heading-font">
+                        Como Você Vai<br>
+                        <span style="color: #FFFF00;">Receber as Receitas?</span>
+                    </h2>
+                    <p class="text-gray-200 mb-8 leading-relaxed">
+                        Assim que seu pagamento for confirmado, você receberá acesso imediato a todas as receitas e bônus através de:
+                    </p>
+                    
+                    <div class="space-y-4">
+                        <div class="flex items-start p-4 bg-white rounded-xl shadow-sm">
+                            <div class="bg-blue-100 text-blue-600 p-3 rounded-full mr-4">
+                                <i class="fas fa-envelope"></i>
+                            </div>
+                            <div>
+                                <h3 class="font-bold mb-1 text-black">E-mail</h3>
+                                <p class="text-gray-600 text-sm">Envio do material completo para seu e-mail cadastrado.</p>
+                            </div>
+                        </div>
+                        
+                        <div class="flex items-start p-4 bg-white rounded-xl shadow-sm">
+                            <div class="bg-green-100 text-green-600 p-3 rounded-full mr-4">
+                                <i class="fab fa-whatsapp"></i>
+                            </div>
+                            <div>
+                                <h3 class="font-bold mb-1 text-black">WhatsApp</h3>
+                                <p class="text-gray-600 text-sm">Acesso ao grupo exclusivo com dicas e novidades.</p>
+                            </div>
+                        </div>
+                        
+                        <div class="flex items-start p-4 bg-white rounded-xl shadow-sm">
+                            <div class="bg-purple-100 text-purple-600 p-3 rounded-full mr-4">
+                                <i class="fas fa-mobile-alt"></i>
+                            </div>
+                            <div>
+                                <h3 class="font-bold mb-1 text-black">Área de Membros</h3>
+                                <p class="text-gray-600 text-sm">Acesso vitalício para consultar quando quiser.</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="lg:w-1/2 order-1 lg:order-2">
+                    <img src="https://i.pinimg.com/736x/d5/5f/30/d55f3006ba00adcce86f5553a2fd2924.jpg" alt="Como receber as receitas" class="rounded-xl shadow-xl w-full">
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- FAQ Section -->
+    <section class="py-20 px-4 bg-white">
+        <div class="max-w-4xl mx-auto">
+            <div class="text-center mb-16">
+                <h2 class="text-3xl md:text-5xl font-bold mb-6 heading-font">
+                    Perguntas<br>
+                    <span style="background: linear-gradient(90deg, #FF4500, #FF8C00); -webkit-background-clip: text; background-clip: text; color: transparent;">Frequentes</span>
+                </h2>
+                <p class="text-xl text-gray-600 max-w-2xl mx-auto">
+                    Tire suas dúvidas sobre o produto.
+                </p>
+            </div>
+            
+            <div class="space-y-4">
+                <!-- FAQ 1 -->
+                <div class="toggle-item border-b border-gray-200">
+                    <div class="toggle-title cursor-pointer py-4 flex justify-between items-center" onclick="toggleFAQ(1)">
+                        <span class="font-bold">As receitas têm mesmo sabor de verdade?</span>
+                        <i class="fas fa-chevron-down transition-transform duration-300"></i>
+                    </div>
+                    <div class="toggle-content overflow-hidden max-height-0 transition-all duration-300">
+                        <p class="text-gray-600 p-4">Sim! O maior foco da Nutri Sofia foi unir saúde com sabor autêntico. Todas as receitas foram testadas e aprovadas por dezenas de pessoas antes de serem incluídas no cardápio. Nada de comida sem graça - são preparos realmente gostosos que vão surpreender você.</p>
+                    </div>
+                </div>
+                
+                <!-- FAQ 2 -->
+                <div class="toggle-item">
+                    <div class="toggle-title cursor-pointer py-4 flex justify-between items-center" onclick="toggleFAQ(2)">
+                        <span class="font-bold">Preciso saber cozinhar para aproveitar?</span>
+                        <i class="fas fa-chevron-down transition-transform duration-300"></i>
+                    </div>
+                    <div class="toggle-content overflow-hidden max-height-0 transition-all duration-300">
+                        <p class="text-gray-600 p-4">Não! As receitas foram desenvolvidas pensando em todos os níveis de habilidade culinária. Cada preparo vem com instruções passo a passo detalhadas, fotos illustrativas e dicas para garantir o sucesso mesmo para quem está começando agora na cozinha.</p>
+                    </div>
+                </div>
+                
+                <!-- FAQ 3 -->
+                <div class="toggle-item">
+                    <div class="toggle-title cursor-pointer py-4 flex justify-between items-center" onclick="toggleFAQ(3)">
+                        <span class="font-bold">Quanto tempo dura o acesso ao material?</span>
+                        <i class="fas fa-chevron-down transition-transform duration-300"></i>
+                    </div>
+                    <div class="toggle-content overflow-hidden max-height-0 transition-all duration-300">
+                        <p class="text-gray-600 p-4">O acesso é vitalício! Uma vez que você adquire o produto, poderá acessar as receitas quando quiser, sem mensalidades ou custos adicionais. Além disso, atualizações futuras serão disponibilizadas gratuitamente para todos os clientes.</p>
+                    </div>
+                </div>
+                
+                <!-- FAQ 4 -->
+                <div class="toggle-item">
+                    <div class="toggle-title cursor-pointer py-4 flex justify-between items-center" onclick="toggleFAQ(4)">
+                        <span class="font-bold">Posso compartilhar as receitas com minha família?</span>
+                        <i class="fas fa-chevron-down transition-transform duration-300"></i>
+                    </div>
+                    <div class="toggle-content overflow-hidden max-height-0 transition-all duration-300">
+                        <p class="text-gray-600 p-4">Claro! As receitas foram pensadas para toda a família. Você pode preparar para todos em casa ou compartilhar os arquivos com seus familiares que moram com você. O que não permitimos é a distribuição para terceiros ou publicação em outros sites.</p>
+                    </div>
+                </div>
+                
+                <!-- FAQ 5 -->
+                <div class="toggle-item">
+                    <div class="toggle-title cursor-pointer py-4 flex justify-between items-center" onclick="toggleFAQ(5)">
+                        <span class="font-bold">Como funciona a garantia de 7 dias?</span>
+                        <i class="fas fa-chevron-down transition-transform duration-300"></i>
+                    </div>
+                    <div class="toggle-content overflow-hidden max-height-0 transition-all duration-300">
+                        <p class="text-gray-600 p-4">Você tem 7 dias completos para testar todas as receitas. Se por qualquer motivo não ficar satisfeito(a), basta nos enviar um e-mail dentro desse período que devolveremos 100% do seu dinheiro, sem questionamentos. E você ainda poderá ficar com o material como nosso agradecimento.</p>
+                    </div>
+                </div>
+                
+                <!-- FAQ 6 -->
+                <div class="toggle-item">
+                    <div class="toggle-title cursor-pointer py-4 flex justify-between items-center" onclick="toggleFAQ(6)">
+                        <span class="font-bold">As receitas servem para quem tem restrições alimentares?</span>
+                        <i class="fas fa-chevron-down transition-transform duration-300"></i>
+                    </div>
+                    <div class="toggle-content overflow-hidden max-height-0 transition-all duration-300">
+                        <p class="text-gray-600 p-4">Muitas receitas são naturalmente sem glúten, sem lactose ou adaptáveis. Cada preparo traz indicações claras sobre possíveis substituições para atender diferentes necessidades. Além disso, o bônus de sobremesas zero açúcar é perfeito para diabéticos ou quem busca reduzir o consumo de açúcar.</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Final CTA -->
+    <section class="py-20 px-4 bg-gradient-to-br from-blue-600 to-green-600 text-white">
+        <div class="max-w-4xl mx-auto text-center">
+            <h2 class="text-3xl md:text-5xl font-bold mb-6 heading-font">
+                Transforme Seu Café da Manhã<br>
+                <span class="text-yellow-300">Hoje Mesmo</span>
+            </h2>
+            
+            <p class="text-xl text-gray-200 mb-8 max-w-2xl mx-auto">
+                200 receitas nutritivas, saborosas e rápidas para começar seu dia com energia.
+            </p>
+            
+            <div class="grid md:grid-cols-3 gap-8 mb-12 max-w-4xl mx-auto">
+                <div class="bg-white/10 p-6 rounded-xl">
+                    <div class="text-yellow-300 text-3xl mb-3">
+                        <i class="fas fa-utensils"></i>
+                    </div>
+                    <h3 class="font-bold mb-2">200 Receitas</h3>
+                    <p class="text-sm opacity-80">Cafés da manhã saudáveis</p>
+                </div>
+                
+                <div class="bg-white/10 p-6 rounded-xl">
+                    <div class="text-yellow-300 text-3xl mb-3">
+                        <i class="fas fa-gift"></i>
+                    </div>
+                    <h3 class="font-bold mb-2">3 Bônus</h3>
+                    <p class="text-sm opacity-80">Sobremesas, marmitas e sucos</p>
+                </div>
+                
+                <div class="bg-white/10 p-6 rounded-xl">
+                    <div class="text-yellow-300 text-3xl mb-3">
+                        <i class="fas fa-shield-alt"></i>
+                    </div>
+                    <h3 class="font-bold mb-2">7 Dias</h3>
+                    <p class="text-sm opacity-80">Garantia incondicional</p>
+                </div>
+            </div>
+            
+            <div class="mb-4">
+                <div class="countdown-timer bg-gradient-to-r from-yellow-400 to-orange-500 text-white font-bold rounded-xl p-4 max-w-xs mx-auto">
+                    <div class="text-center text-sm mb-2">TERMINA EM:</div>
+                    <div class="flex justify-center gap-2 text-2xl">
+                        <div class="bg-white/20 rounded-lg px-3 py-1 min-w-[2.5rem] text-center">00</div>
+                        <div class="text-yellow-300">:</div>
+                        <div class="bg-white/20 rounded-lg px-3 py-1 min-w-[2.5rem] text-center">59</div>
+                        <div class="text-yellow-300">:</div>
+                        <div class="bg-white/20 rounded-lg px-3 py-1 min-w-[2.5rem] text-center">00</div>
+                    </div>
+                </div>
+            </div>
+            
+            <div class="mb-8">
+                <div class="text-5xl font-bold mb-2 text-yellow-300">
+                    R$29,90
+                </div>
+                <div class="text-xl">
+                    ou 6x de R$5,69
+                </div>
+            </div>
+            
+            <div class="mb-8 max-w-md mx-auto">
+                <a href="https://pay.cakto.com.br/3bzkwmj_538167" class="btn-secondary text-white font-bold py-4 px-8 rounded-full text-lg w-full block">
+                    <i class="fas fa-shopping-cart mr-2"></i> QUERO MEU CARDÁPIO AGORA
+                </a>
+            </div>
+            
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="py-12 px-4 bg-gray-900 text-white">
+        <div class="max-w-6xl mx-auto">
+            <div class="grid md:grid-cols-3 gap-8 mb-8 text-center">
+                <div class="md:col-start-2">
+                    <h4 class="font-bold mb-4">Legal</h4>
+                    <ul class="space-y-2">
+                        <li><a href="#" class="text-gray-400 hover:text-white transition">Termos de Uso</a></li>
+                        <li><a href="#" class="text-gray-400 hover:text-white transition">Política de Privacidade</a></li>
+                        <li><a href="#" class="text-gray-400 hover:text-white transition">Cookies</a></li>
+                    </ul>
+                </div>
+                
+                <div>
+                    <h4 class="font-bold mb-4">Contato</h4>
+                    <ul class="space-y-2">
+                        <li class="flex items-center justify-center">
+                            <i class="fas fa-envelope mr-2 text-gray-400"></i>
+                            <span class="text-gray-400">contato@nutriday.com</span>
+                        </li>
+                    </ul>
+                </div>
+            </div>
+            
+            <div class="pt-8 border-t border-gray-800 text-center">
+                <p class="text-gray-400 mb-4">© 2025 Nutri Day - Todos os direitos reservados</p>
+                <p class="text-xs text-gray-600 max-w-3xl mx-auto">
+                    Este site não é afiliado ao Facebook ou a qualquer entidade do Facebook. Depois que você sair do Facebook, a responsabilidade não é deles e sim do nosso site. Fazemos todos os esforços para indicar claramente e mostrar todas as provas do produto e usamos resultados reais. Nós não vendemos o seu e-mail ou qualquer informação para terceiros. Jamais fazemos nenhum tipo de spam.
+                </p>
+            </div>
+        </div>
+    </footer>
+
+    <script>
+        // Simple Swiper initialization and scroll to CTA
+        document.addEventListener('DOMContentLoaded', function() {
+            // Scroll to main CTA when clicking any button without href
+            document.querySelectorAll('a:not([href]), a[href="#"]').forEach(btn => {
+                btn.addEventListener('click', (e) => {
+                    e.preventDefault();
+                    document.getElementById('main-cta').scrollIntoView({
+                        behavior: 'smooth'
+                    });
+                });
+            });
+            
+            // Initialize hero carousel with autoplay
+            const heroSwiper = new Swiper('.hero.swiper-container', {
+                loop: true,
+                autoplay: {
+                    delay: 2000,
+                    disableOnInteraction: false,
+                },
+                pagination: {
+                    el: '.swiper-pagination',
+                    clickable: true,
+                },
+            });
+
+            // Initialize testimonials carousel
+            const testimonialSwiper = new Swiper('.testimonials.swiper-container', {
+                loop: true,
+                slidesPerView: 1,
+                spaceBetween: 30,
+                autoplay: {
+                    delay: 2000,
+                    disableOnInteraction: false,
+                },
+                pagination: {
+                    el: '.swiper-pagination',
+                    clickable: true,
+                },
+                breakpoints: {
+                    640: {
+                        slidesPerView: 2,
+                        spaceBetween: 20
+                    }
+                }
+            });
+            
+            // FAQ toggle functionality
+            document.querySelectorAll('.toggle-title').forEach((title, index) => {
+                title.addEventListener('click', () => {
+                    const content = title.nextElementSibling;
+                    const icon = title.querySelector('i');
+                    
+                    title.classList.toggle('active');
+                    content.classList.toggle('active');
+                    
+                    if (content.classList.contains('active')) {
+                        content.style.maxHeight = content.scrollHeight + "px";
+                    } else {
+                        content.style.maxHeight = null;
+                    }
+                });
+            });
+        });
+                
+        // Load Swiper library and CSS before initialization
+        function loadSwiper() {
+            const swiperCSS = document.createElement('link');
+            swiperCSS.rel = 'stylesheet';
+            swiperCSS.href = 'https://unpkg.com/swiper@8/swiper-bundle.min.css';
+            document.head.appendChild(swiperCSS);
+
+            const swiperScript = document.createElement('script');
+            swiperScript.src = 'https://unpkg.com/swiper@8/swiper-bundle.min.js';
+            swiperScript.onload = initSwipers;
+            document.head.appendChild(swiperScript);
+        }
+
+        function initSwipers() {
+            // Hero carousel
+            new Swiper('.hero.swiper-container', {
+                loop: true,
+                autoplay: {
+                    delay: 2000,
+                    disableOnInteraction: false,
+                },
+                pagination: {
+                    el: '.swiper-pagination',
+                    clickable: true,
+                },
+            });
+
+            // Testimonials carousel
+            new Swiper('.testimonials .swiper-container', {
+                loop: true,
+                autoplay: {
+                    delay: 7000,
+                    disableOnInteraction: false,
+                },
+                pagination: {
+                    el: '.swiper-pagination',
+                    clickable: true,
+                },
+            });
+        }
+
+        // Countdown timer
+        function startCountdown() {
+            let minutes = 59;
+            let seconds = 0;
+            
+            const timer = setInterval(() => {
+                if (seconds === 0) {
+                    if (minutes === 0) {
+                        minutes = 59;
+                    } else {
+                        minutes--;
+                    }
+                    seconds = 59;
+                } else {
+                    seconds--;
+                }
+                
+                document.querySelectorAll('.countdown-timer div:nth-child(2) div:nth-child(1)').forEach(el => {
+                    el.textContent = '00';
+                });
+                document.querySelectorAll('.countdown-timer div:nth-child(2) div:nth-child(3)').forEach(el => {
+                    el.textContent = minutes.toString().padStart(2, '0');
+                });
+                document.querySelectorAll('.countdown-timer div:nth-child(2) div:nth-child(5)').forEach(el => {
+                    el.textContent = seconds.toString().padStart(2, '0');
+                });
+            }, 1000);
+        }
+
+        // Start loading Swiper when DOM is ready
+        document.addEventListener('DOMContentLoaded', function() {
+            loadSwiper();
+            startCountdown();
+            
+            // FAQ toggle functionality
+            document.querySelectorAll('.toggle-title').forEach((title) => {
+                title.addEventListener('click', () => {
+                    const content = title.nextElementSibling;
+                    const icon = title.querySelector('i');
+                    
+                    title.classList.toggle('active');
+                    content.classList.toggle('active');
+                    
+                    if (content.classList.contains('active')) {
+                        content.style.maxHeight = content.scrollHeight + "px";
+                    } else {
+                        content.style.maxHeight = null;
+                    }
+                });
+            });
+        });
+    </script>
+<p style="border-radius: 8px; text-align: center; font-size: 12px; color: #fff; margin-top: 16px;position: fixed; left: 8px; bottom: 8px; z-index: 10; background: rgba(0, 0, 0, 0.8); padding: 4px 8px;">Made with <img src="https://enzostvs-deepsite.hf.space/logo.svg" alt="DeepSite Logo" style="width: 16px; height: 16px; vertical-align: middle;display:inline-block;margin-right:3px;filter:brightness(0) invert(1);"><a href="https://enzostvs-deepsite.hf.space" style="color: #fff;text-decoration: underline;" target="_blank" >DeepSite</a> - 🧬 <a href="https://enzostvs-deepsite.hf.space?remix=rtrtrtrtrt5454/receitasx" style="color: #fff;text-decoration: underline;" target="_blank" >Remix</a></p></body>
+</html>
